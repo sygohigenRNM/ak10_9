@@ -52,8 +52,8 @@
 ------------------------------------------------------------------------------*/
 void CanSpy_Create(const char *);
 void CanSpy_Destroy();
-void CanSpy_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg);
-void CanSpy_ReceiveFrame(uint8_t * CANMsg);
+BOOL CanSpy_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg);
+BOOL CanSpy_ReceiveFrame(uint8_t * CANMsg);
 
 char * CanSpy_GetName();
 uint32_t CanSpy_GetId();

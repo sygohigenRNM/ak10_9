@@ -14,6 +14,7 @@
 ------
 ------------------------------------------------------------------------------*/
 #include "TmotorCAN.h"
+#include "canSpy.h"
 #include "socketCAN.h"
 #include "common.h"
 /*------------------------------------------------------------------------------
@@ -33,10 +34,10 @@
 ------
 ------------------------------------------------------------------------------*/
 TmotorCAN_interface TmotorInterface = {
-	.Create = SocketCAN_Create,
-	.Destroy = SocketCAN_Destroy,
-	.SendFrame = SocketCAN_SendFrame,
-	.ReceiveFrame = SocketCAN_ReceiveFrame
+	.Create = CanSpy_Create,
+	.Destroy = CanSpy_Destroy,
+	.SendFrame = CanSpy_SendFrame,
+	.ReceiveFrame = CanSpy_ReceiveFrame
 };
 
 /*------------------------------------------------------------------------------

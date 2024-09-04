@@ -51,7 +51,7 @@ void CanSpy_Destroy()
 	}
 
 }
-void CanSpy_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg)
+BOOL CanSpy_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg)
 {
 	struct can_frame tx_frame = {0,};
 
@@ -59,13 +59,17 @@ void CanSpy_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg)
     tx_frame.can_dlc = dlc;
     memcpy(tx_frame.data, CANMsg, tx_frame.can_dlc);
 	memcpy(bus, &tx_frame, sizeof(struct can_frame));
+
+	return TRUE;
 }
-void CanSpy_ReceiveFrame(uint8_t * CANMsg)
+BOOL CanSpy_ReceiveFrame(uint8_t * CANMsg)
 {
 	struct can_frame rx_frame = {0,};
 
 	memcpy(&rx_frame, bus, sizeof(struct can_frame));
 	memcpy(CANMsg, &rx_frame.data, rx_frame.can_dlc);
+
+	return TRUE;
 }
 
 char * CanSpy_GetName()
