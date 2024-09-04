@@ -14,8 +14,6 @@
 ------
 ------------------------------------------------------------------------------*/
 #include "TmotorCAN.h"
-#include "canSpy.h"
-#include "socketCAN.h"
 #include "common.h"
 /*------------------------------------------------------------------------------
 ------
@@ -27,19 +25,17 @@
 ------    Macro
 ------
 ------------------------------------------------------------------------------*/
-
 /*------------------------------------------------------------------------------
 ------
 ------    variables(external)
 ------
 ------------------------------------------------------------------------------*/
 TmotorCAN_interface TmotorInterface = {
-	.Create = CanSpy_Create,
-	.Destroy = CanSpy_Destroy,
-	.SendFrame = CanSpy_SendFrame,
-	.ReceiveFrame = CanSpy_ReceiveFrame
+	.Create = NULL,
+	.Destroy = NULL,
+	.SendFrame = NULL,
+	.ReceiveFrame = NULL
 };
-
 /*------------------------------------------------------------------------------
 ------
 ------    Functions
@@ -56,6 +52,7 @@ void TmotorCAN_Destroy()
 	TmotorInterface.Create = NULL;
 	TmotorInterface.Destroy = NULL;
 	TmotorInterface.SendFrame = NULL;
+	TmotorInterface.ReceiveFrame = NULL;
 }
 BOOL TmotorCAN_SendFrame(uint32_t id, uint8_t dlc, const uint8_t * CANMsg)
 {

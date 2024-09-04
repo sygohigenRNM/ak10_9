@@ -140,7 +140,7 @@ TEST(CAN, PrintFrame)
 	data[7] = 8;
 	CanSpy_SendFrame(1, 8, data);
 	validFrame(data);
-	printFrame();
+	// printFrame();
 }
 TEST(CAN, OtherLensFrame)
 {
@@ -151,5 +151,5 @@ TEST(CAN, OtherLensFrame)
 	data[3] = 41;
 	CanSpy_SendFrame(1, 8, data);
 	validFrame(data);
-	printFrame();
+	// printFrame();
 }

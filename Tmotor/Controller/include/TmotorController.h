@@ -33,6 +33,14 @@
 #define KD_MIN	0
 #define KD_MAX	5.0f
 
+typedef enum{
+	DUTY_CYCLE_MODE = 0,
+	CURRENT_MODE,
+	CURRENT_BRAKE_MODE,
+	RPM_MODE,
+	POSITION_MODE
+}TMOTOR_MODE;
+
 /*------------------------------------------------------------------------------
 ------
 ------    Macro

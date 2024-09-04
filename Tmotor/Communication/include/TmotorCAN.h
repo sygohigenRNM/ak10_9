@@ -17,6 +17,7 @@
 ------
 ------------------------------------------------------------------------------*/
 #include <stdint.h>
+#include "canSpy.h"
 #include "common.h"
 /*------------------------------------------------------------------------------
 ------
@@ -55,13 +56,18 @@ typedef struct{
 ------    Macro
 ------
 ------------------------------------------------------------------------------*/
-
+#define TMOTOR_INTERFACE(module) { \
+	TmotorInterface.Create = module##_Create; \
+	TmotorInterface.Destroy = module##_Destroy;  \
+	TmotorInterface.SendFrame = module##_SendFrame;  \
+	TmotorInterface.ReceiveFrame = module##_ReceiveFrame; \
+}
 /*------------------------------------------------------------------------------
 ------
 ------    variables(external)
 ------
 ------------------------------------------------------------------------------*/
-
+extern TmotorCAN_interface TmotorInterface;
 /*------------------------------------------------------------------------------
 ------
 ------    Functions
